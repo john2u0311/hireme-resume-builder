@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hireme-resume-builder/static/css/main.e6c13ad2.css",
+    "main.js": "/hireme-resume-builder/static/js/main.77e1915c.js",
+    "static/js/453.10b9a410.chunk.js": "/hireme-resume-builder/static/js/453.10b9a410.chunk.js",
+    "index.html": "/hireme-resume-builder/index.html",
+    "main.e6c13ad2.css.map": "/hireme-resume-builder/static/css/main.e6c13ad2.css.map",
+    "main.77e1915c.js.map": "/hireme-resume-builder/static/js/main.77e1915c.js.map",
+    "453.10b9a410.chunk.js.map": "/hireme-resume-builder/static/js/453.10b9a410.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.77e1915c.js"
+  ]
+}
