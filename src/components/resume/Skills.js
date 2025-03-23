@@ -1,18 +1,34 @@
-import React from 'react';
-import { 
-  Box, Typography, Chip, TextField, IconButton,
-  Paper
-} from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
+import React, { useState } from 'react';
+import { TextField, Grid, Typography, Box, Button, Chip, Stack } from '@mui/material';
 
-function Skills({ formData, handleAddSkill, handleRemoveSkill }) {
-  const [newSkill, setNewSkill] = React.useState('');
+function Skills({ formData, setFormData }) {
+  const [skill, setSkill] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (newSkill.trim()) {
-      handleAddSkill(newSkill.trim());
-      setNewSkill('');
+  const handleChange = (e) => {
+    setSkill(e.target.value);
+  };
+
+  const handleAdd = () => {
+    if (skill.trim() && !formData.skills.includes(skill.trim())) {
+      setFormData({
+        ...formData,
+        skills: [...formData.skills, skill.trim()]
+      });
+      setSkill('');
+    }
+  };
+
+  const handleDelete = (skillToDelete) => {
+    setFormData({
+      ...formData,
+      skills: formData.skills.filter((s) => s !== skillToDelete)
+    });
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleAdd();
     }
   };
 
@@ -21,46 +37,48 @@ function Skills({ formData, handleAddSkill, handleRemoveSkill }) {
       <Typography variant="h6" gutterBottom>
         Skills
       </Typography>
-      <Box component="form" onSubmit={handleSubmit} sx={{ mb: 3 }}>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+      
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
           <TextField
             fullWidth
-            variant="outlined"
-            size="small"
-            placeholder="Add a skill"
-            value={newSkill}
-            onChange={(e) => setNewSkill(e.target.value)}
+            label="Add a Skill"
+            value={skill}
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}
+            placeholder="e.g. JavaScript, Project Management, Customer Service"
           />
-          <IconButton 
-            type="submit"
-            color="primary"
-            sx={{ border: '1px dashed', borderRadius: 1 }}
+        </Grid>
+        <Grid item xs={12}>
+          <Button 
+            variant="contained" 
+            color="primary" 
+            onClick={handleAdd}
+            disabled={!skill.trim()}
           >
-            <AddIcon />
-          </IconButton>
-        </Box>
-      </Box>
-
-      <Paper 
-        variant="outlined" 
-        sx={{ 
-          p: 2,
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: 1,
-          minHeight: 100
-        }}
-      >
-        {formData.skills.map((skill, index) => (
-          <Chip
-            key={index}
-            label={skill}
-            onDelete={() => handleRemoveSkill(index)}
-            color="primary"
-            variant="outlined"
-          />
-        ))}
-      </Paper>
+            Add Skill
+          </Button>
+        </Grid>
+        
+        {formData.skills.length > 0 && (
+          <Grid item xs={12}>
+            <Typography variant="subtitle1" gutterBottom>
+              Your Skills
+            </Typography>
+            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+              {formData.skills.map((s, index) => (
+                <Chip 
+                  key={index}
+                  label={s}
+                  onDelete={() => handleDelete(s)}
+                  color="primary"
+                  sx={{ margin: '4px' }}
+                />
+              ))}
+            </Stack>
+          </Grid>
+        )}
+      </Grid>
     </Box>
   );
 }

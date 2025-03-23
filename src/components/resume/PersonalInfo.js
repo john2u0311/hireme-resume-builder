@@ -1,63 +1,77 @@
 import React from 'react';
-import { Grid, TextField } from '@mui/material';
+import { TextField, Grid, Typography, Box } from '@mui/material';
 
-function PersonalInfo({ formData, handleChange }) {
+function PersonalInfo({ formData, setFormData }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} sm={6}>
-        <TextField
-          required
-          fullWidth
-          id="firstName"
-          name="firstName"
-          label="First Name"
-          value={formData.firstName || ''}
-          onChange={handleChange}
-          error={!formData.firstName}
-          helperText={!formData.firstName ? 'First name is required' : ''}
-        />
+    <Box>
+      <Typography variant="h6" gutterBottom>
+        Personal Information
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            fullWidth
+            label="First Name"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            fullWidth
+            label="Last Name"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            fullWidth
+            label="Email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            fullWidth
+            label="Phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            multiline
+            rows={4}
+            label="Professional Summary"
+            name="summary"
+            value={formData.summary}
+            onChange={handleChange}
+            placeholder="Write a brief summary of your professional background and key strengths"
+            helperText="A good summary highlights your most relevant qualifications and sets you apart from other candidates"
+          />
+        </Grid>
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <TextField
-          required
-          fullWidth
-          id="lastName"
-          name="lastName"
-          label="Last Name"
-          value={formData.lastName || ''}
-          onChange={handleChange}
-          error={!formData.lastName}
-          helperText={!formData.lastName ? 'Last name is required' : ''}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          required
-          fullWidth
-          id="email"
-          name="email"
-          label="Email"
-          type="email"
-          value={formData.email || ''}
-          onChange={handleChange}
-          error={!formData.email}
-          helperText={!formData.email ? 'Email is required' : ''}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          required
-          fullWidth
-          id="phone"
-          name="phone"
-          label="Phone"
-          value={formData.phone || ''}
-          onChange={handleChange}
-          error={!formData.phone}
-          helperText={!formData.phone ? 'Phone is required' : ''}
-        />
-      </Grid>
-    </Grid>
+    </Box>
   );
 }
 
