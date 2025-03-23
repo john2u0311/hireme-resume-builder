@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/hireme-resume-builder/static/css/main.e6c13ad2.css",
-    "main.js": "/hireme-resume-builder/static/js/main.e4a3ada6.js",
-    "static/js/453.10b9a410.chunk.js": "/hireme-resume-builder/static/js/453.10b9a410.chunk.js",
+    "main.css": "/hireme-resume-builder/static/css/main.69c044cf.css",
+    "main.js": "/hireme-resume-builder/static/js/main.94ef1a78.js",
     "index.html": "/hireme-resume-builder/index.html",
-    "main.e6c13ad2.css.map": "/hireme-resume-builder/static/css/main.e6c13ad2.css.map",
-    "main.e4a3ada6.js.map": "/hireme-resume-builder/static/js/main.e4a3ada6.js.map",
-    "453.10b9a410.chunk.js.map": "/hireme-resume-builder/static/js/453.10b9a410.chunk.js.map"
+    "main.69c044cf.css.map": "/hireme-resume-builder/static/css/main.69c044cf.css.map",
+    "main.94ef1a78.js.map": "/hireme-resume-builder/static/js/main.94ef1a78.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.e4a3ada6.js"
+    "static/css/main.69c044cf.css",
+    "static/js/main.94ef1a78.js"
   ]
 }
