@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/hireme-resume-builder/static/css/main.69c044cf.css",
-    "main.js": "/hireme-resume-builder/static/js/main.94ef1a78.js",
+    "main.js": "/hireme-resume-builder/static/js/main.58d8234a.js",
     "index.html": "/hireme-resume-builder/index.html",
     "main.69c044cf.css.map": "/hireme-resume-builder/static/css/main.69c044cf.css.map",
-    "main.94ef1a78.js.map": "/hireme-resume-builder/static/js/main.94ef1a78.js.map"
+    "main.58d8234a.js.map": "/hireme-resume-builder/static/js/main.58d8234a.js.map"
   },
   "entrypoints": [
     "static/css/main.69c044cf.css",
-    "static/js/main.94ef1a78.js"
+    "static/js/main.58d8234a.js"
   ]
 }
